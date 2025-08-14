@@ -1,14 +1,12 @@
 class Solution {
     public String largestGoodInteger(String num) {
         String largest = ""; 
-        
-        for (int i = 0; i <= num.length() - 3; i++) {
-            String substring = num.substring(i, i + 3);
+        for (int i = 0; i < num.length() - 2; i++) {
             
-            if (substring.charAt(0) == substring.charAt(1) && substring.charAt(1) == substring.charAt(2)) {
-                
-                if (largest.compareTo(substring) < 0) {
-                    largest = substring;
+            if (num.charAt(i) == num.charAt(i + 1) && num.charAt(i + 1) == num.charAt(i + 2)) {
+                String current = num.substring(i, i + 3);
+                if (largest.compareTo(current) < 0) {
+                    largest = current; 
                 }
             }
         }
